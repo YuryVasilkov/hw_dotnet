@@ -23,7 +23,7 @@ namespace HW_05_02
             {
                 string num1 = Console.ReadLine();
 
-                while (!int.TryParse(num1, out int num) || num <= 0 || num >= array.Length)
+                while (!int.TryParse(num1, out int num) || num < 0 || num >= array.Length)
                 {
                     Console.WriteLine("Incorrect data. Please, try again");
                     num1 = Console.ReadLine();
