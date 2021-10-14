@@ -31,6 +31,42 @@ namespace HW_05_03
 
             Console.WriteLine("The resulting array");
             PrintArray(numbers);
+
+            /* CODE FOR ADDITIONAL TASK
+             * The built-in Reverse() method is about 5 times better than the one implemented by hand
+              
+              
+            Random rand = new Random();
+            Stopwatch timer = new Stopwatch();
+            int[] testArray = new int[100_000_000];
+
+            for (int i = 0; i < testArray.Length; i++)
+            {
+                testArray[i] = rand.Next(1, 1000);
+            }
+
+            Console.WriteLine(new string('*',30));
+            
+
+            timer.Start();
+            for (int i = 0; i < testArray.Length / 2; i++)
+            {
+                temp = testArray[i];
+                testArray[i] = testArray[testArray.Length - 1 - i];
+                testArray[testArray.Length - 1 - i] = temp;
+            }
+            timer.Stop();
+            
+            Console.WriteLine($"Time:{timer.ElapsedMilliseconds}");
+
+            timer.Reset();
+            timer.Start();
+            Array.Reverse(testArray);
+            timer.Stop();
+
+            Console.WriteLine($"Time for Reverse method:{timer.ElapsedMilliseconds}");
+
+            */
         }
     }
 }
