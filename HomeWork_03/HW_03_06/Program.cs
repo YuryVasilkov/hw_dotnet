@@ -16,9 +16,10 @@ namespace HW_03_06
             {
                 Console.WriteLine("Please, move the player. Enter q for exit");
                 symbol = Console.ReadLine();
+
                 if (symbol != null)
                 {
-                    switch (symbol)
+                    switch (symbol.ToLower())
                     {
                         case "w":
                             {

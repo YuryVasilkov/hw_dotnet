@@ -6,7 +6,7 @@ namespace HW_03_07_Birthday
     {
         static void Main(string[] args)
         {
-            int getBirthYear(string numberInString)
+            int GetBirthYear(string numberInString)
             {
                 while ((!int.TryParse(numberInString, out int num)) || num > DateTime.Now.Year || num < 1)
                 {
@@ -17,7 +17,7 @@ namespace HW_03_07_Birthday
                 return Convert.ToInt32(numberInString);
             }
 
-            int getCurrentYear(string numberInString, int yearOfBirth)
+            int GetCurrentYear(string numberInString, int yearOfBirth)
             {
                 while ((!int.TryParse(numberInString, out int num)) || num > DateTime.Now.Year || yearOfBirth > num)
                 {
@@ -28,7 +28,7 @@ namespace HW_03_07_Birthday
                 return Convert.ToInt32(numberInString);
             }
 
-            int getBirthMonth(string numberInString)
+            int GetBirthMonth(string numberInString)
             {
                 while ((!int.TryParse(numberInString, out int num)) || num > 12 || num < 1)
                 {
@@ -38,7 +38,8 @@ namespace HW_03_07_Birthday
 
                 return Convert.ToInt32(numberInString);
             }
-            int getCurrentMonth(string numberInString, int yearOfBirth, int currentYear, int BirthMonth)
+
+            int GetCurrentMonth(string numberInString, int yearOfBirth, int currentYear, int BirthMonth)
             {
                 bool isSameYear = yearOfBirth == currentYear;
 
@@ -50,18 +51,23 @@ namespace HW_03_07_Birthday
 
                 return Convert.ToInt32(numberInString);
             }
+
             Console.WriteLine("Please, enter the year of birth");
             string inputData = Console.ReadLine();
-            int yearOfBirth = getBirthYear(inputData);
+            int yearOfBirth = GetBirthYear(inputData);
+
             Console.WriteLine("Please, enter the number of the month of birth");
             inputData = Console.ReadLine();
-            int monthOfBirth = getBirthMonth(inputData);
+            int monthOfBirth = GetBirthMonth(inputData);
+
             Console.WriteLine("Please, enter the current year");
             inputData = Console.ReadLine();
-            int currentYear = getCurrentYear(inputData, yearOfBirth);
+            int currentYear = GetCurrentYear(inputData, yearOfBirth);
+
             Console.WriteLine("Please, enter the number of the current month");
             inputData = Console.ReadLine();
-            int currentMonth = getCurrentMonth(inputData, yearOfBirth, currentYear, monthOfBirth);
+            int currentMonth = GetCurrentMonth(inputData, yearOfBirth, currentYear, monthOfBirth);
+
             if (currentMonth >= monthOfBirth)
             {
                 Console.WriteLine(" Your age is {0}", currentYear-yearOfBirth);
