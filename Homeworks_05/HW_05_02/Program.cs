@@ -19,11 +19,11 @@ namespace HW_05_02
                 return Convert.ToInt32(num1);
             }
 
-            int AddPositionNumber(int[] array)
+            int AddPositionOfNumber(int[] array)
             {
                 string num1 = Console.ReadLine();
 
-                while (!int.TryParse(num1, out int num) || num < 0 || num >= array.Length)
+                while (!int.TryParse(num1, out int num) || num < 1 || num > array.Length)
                 {
                     Console.WriteLine("Incorrect data. Please, try again");
                     num1 = Console.ReadLine();
@@ -47,8 +47,7 @@ namespace HW_05_02
             for (int i = 0; i < numbers.Length - 1; i++)
             {
                 Console.WriteLine($"Please, input number № {i + 1}");
-                numbers[i] = AddNumber();
-            
+                numbers[i] = AddNumber();            
             }
 
             Console.WriteLine("Current array:");
@@ -58,14 +57,14 @@ namespace HW_05_02
             additionalNumber = AddNumber();
 
             Console.WriteLine("Please, input the position number of additional number.");
-            position = AddPositionNumber(numbers);
+            position = AddPositionOfNumber(numbers);
 
-            for (int i = numbers.Length - 1; i > position; i--)
+            for (int i = numbers.Length - 1; i > position - 1; i--)
             {
                 numbers[i] = numbers[i - 1];
             }
 
-            numbers[position] = additionalNumber;
+            numbers[position - 1] = additionalNumber;
 
             Console.WriteLine("Array after shift:");
             PrintArray(numbers);
