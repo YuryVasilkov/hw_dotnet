@@ -13,6 +13,7 @@ namespace HW_05_03
                 {
                     Console.Write(item + " ");
                 }
+
                 Console.WriteLine();
             }
 

@@ -6,8 +6,7 @@ namespace HW._05.GoodDay
     {
         static void Main(string[] args)
         {
-            int currentHour = DateTime.Now.Hour;
-            switch (currentHour)
+            switch (DateTime.Now.Hour)
             {
                 case int hours when (hours >= 9 && hours < 12):
                     {

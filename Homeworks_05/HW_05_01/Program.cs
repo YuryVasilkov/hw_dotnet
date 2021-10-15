@@ -4,10 +4,8 @@ namespace HW_05_01
 {
     class Program
     {
-
         static void Main(string[] args)
         {
-
             int AddNumber(int number)
             {
                 Console.WriteLine($"Please, input number № {++number}");
@@ -29,10 +27,11 @@ namespace HW_05_01
                 {
                     Console.Write(array[i] + " ");
                 }
+
                 Console.WriteLine();
             }
 
-            Random generator = new Random();
+            Random generator = new();
             int[] randomNumbers = new int[10];
             int[] userNumbers = new int[10];
             int[] sumOfTwoArrays = new int[10];
