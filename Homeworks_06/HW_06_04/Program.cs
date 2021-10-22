@@ -15,12 +15,12 @@ namespace HW_06_04
             string textReaderResult = textReader.ReadToEnd();
             textReader.Dispose();
 
-            foreach (var item in textReaderResult)
+            for (int i = 0; i < textReaderResult.Length; i++)
             {
-                if (item == findSymbol)
+                if (textReaderResult[i] == findSymbol)
                 {
                     count++;
-                    positions.Add(item);
+                    positions.Add(i);
                 }
             }
 
