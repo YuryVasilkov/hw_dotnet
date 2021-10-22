@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace HW_06_02
 {
@@ -10,30 +11,59 @@ namespace HW_06_02
             {
                 string[] wordsOfText = text.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                 string longestWord = wordsOfText[0];
+                List<int> positionOfLongWords = new();
 
-                for (int i = 1; i < wordsOfText.Length; i++)
+                for (int i = 0; i < wordsOfText.Length; i++)
                 {
+                    for (int j = 0; j < wordsOfText[i].Length; j++)
+                    {
+                        if (char.IsPunctuation(wordsOfText[i][j]))
+                        {
+                            wordsOfText[i] = wordsOfText[i].Remove(j, 1);
+                        }
+                    }
+
                     if (longestWord.Length < wordsOfText[i].Length)
                     {
                         longestWord = wordsOfText[i];
                     }
+
+                    if (longestWord.Length == wordsOfText[i].Length)
+                    {
+                        positionOfLongWords.Add(i);
+                    }
+                }
+
+                for (int i = 1; i < positionOfLongWords.ToArray().Length; i++)
+                {
+                    wordsOfText[positionOfLongWords[i]] = string.Empty;
                 }
 
                 Console.WriteLine("Text after deletion:");
                 Console.WriteLine();
-                Console.WriteLine(text.Replace(longestWord,""));
+                Console.WriteLine(String.Join(" ", wordsOfText));
             }
 
-            void SwapWords (string text)
+            void SwapWords(string text)
             {
                 string[] wordsOfText = text.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                 string longestWord = wordsOfText[0];
                 string shortestWord = wordsOfText[0];
                 int indexOfMax = 0;
                 int indexOfMin = 0;
+                List<int> positionOfLongWord = new();
+                List<int> positionOfShortWord = new();
 
-                for (int i = 1; i < wordsOfText.Length; i++)
+                for (int i = 0; i < wordsOfText.Length; i++)
                 {
+                    for (int j = 0; j < wordsOfText[i].Length; j++)
+                    {
+                        if (char.IsPunctuation(wordsOfText[i][j]))
+                        {
+                            wordsOfText[i] = wordsOfText[i].Remove(j, 1);
+                        }
+                    }
+
                     if (longestWord.Length < wordsOfText[i].Length)
                     {
                         longestWord = wordsOfText[i];
@@ -45,6 +75,26 @@ namespace HW_06_02
                         shortestWord = wordsOfText[i];
                         indexOfMin = i;
                     }
+
+                    if (longestWord.Length == wordsOfText[i].Length)
+                    {
+                        positionOfLongWord.Add(i);
+                    }
+
+                    if (shortestWord.Length == wordsOfText[i].Length)
+                    {
+                        positionOfShortWord.Add(i);
+                    }
+                }
+
+                for (int i = 1; i < positionOfLongWord.ToArray().Length; i++)
+                {
+                    wordsOfText[positionOfLongWord[i]] = string.Empty;
+                }
+
+                for (int i = 1; i < positionOfShortWord.ToArray().Length; i++)
+                {
+                    wordsOfText[positionOfShortWord[i]] = string.Empty;
                 }
 
                 wordsOfText[indexOfMin] = longestWord;
@@ -75,7 +125,7 @@ namespace HW_06_02
                 Console.WriteLine($"String contains {amountOfLetters} letters and {amountOfPunctuations} punctuation marks.");
             }
 
-            void Sort (string text)
+            void Sort(string text)
             {
                 string[] wordsOfText = text.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                 string temp;
@@ -98,8 +148,8 @@ namespace HW_06_02
                 Console.WriteLine(String.Join(" ", wordsOfText));
             }
 
-            string text = "Современные технологии достигли такого уровня, что укрепление и развитие внутренней структуры однозначно определяет каждого участника как способного принимать собственные решения касаемо направлений прогрессивного развития. Следует отметить, что понимание сути ресурсосберегающих технологий не оставляет шанса для новых принципов формирования материально-технической и кадровой базы.";
-            
+            string text = "один, два, три, четыре, пять, шесть, восемь, девять, десять.";
+
             Console.WriteLine("Source string:");
             Console.WriteLine();
             Console.WriteLine(text);
@@ -111,7 +161,7 @@ namespace HW_06_02
             SwapWords(text);
 
             Console.WriteLine();
-            CountChar(text);            
+            CountChar(text);
 
             Console.WriteLine();
             Sort(text);
