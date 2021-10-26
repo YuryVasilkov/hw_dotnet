@@ -92,8 +92,6 @@ namespace HW_06_03
             }
 
             Calculate(sign, num1, num2);
-
-
         }
     }
 }
