@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>HW_08_02_02__AssemblyTwo</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HW_08_02_01_AssemblyOne\HW_08_02_01_AssemblyOne.csproj" />
+  </ItemGroup>
+
+</Project>
