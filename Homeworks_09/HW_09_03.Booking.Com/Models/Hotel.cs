@@ -5,7 +5,7 @@
         private int _countOfTypeRooms = 0;
         private int _countOfGuests = 0;
         public readonly Room[] _rooms = new Room[10];
-        private readonly GuestData[] _guests = new GuestData[20];
+        private readonly Guest[] _guests = new Guest[20];
 
         public string City { get; }
         public string Name { get; }
@@ -29,10 +29,10 @@
             _rooms[_countOfTypeRooms] = room;
             _countOfTypeRooms++;
         }
-        public void SaveNewGuest(Room room, string lastName, string firstName, string email, string adress, string city, string country, string phone, string wishes)
+        public void SaveNewGuest(Guest guest)
         {
-            _guests[_countOfGuests] = new GuestData(room, lastName, firstName, email, adress, city, country, phone, wishes);
-            room.CountOfThisRoom--;
+            _guests[_countOfGuests] = new Guest(guest.TypeOfRoom, guest.LastName, guest.FirstName, guest.Email, guest.YourAddress, guest.YourCity, guest.YourCountry, guest.YourPhone, guest.Wishes);
+            guest.TypeOfRoom.CountOfThisRoom--;
             _countOfGuests++;
         }
     }

@@ -292,7 +292,7 @@ namespace HW_09_03.Booking.Com
             Console.Write("Your wishes: ");
             string wishes = Console.ReadLine();
 
-            hotels[choiceOfHotel].SaveNewGuest(hotels[choiceOfHotel]._rooms[choiceOfRoom], lastName, firstName, email, address, city, country, phone, wishes);
+            hotels[choiceOfHotel].SaveNewGuest(new Guest(hotels[choiceOfHotel]._rooms[choiceOfRoom],lastName, firstName, email, address, city, country, phone, wishes));
             Console.Clear();
 
             Console.WriteLine($"Congratulations, {lastName} {firstName}"!);
