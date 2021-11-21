@@ -6,6 +6,9 @@ namespace HW_10_03
 {
     class Engineer
     {
+        public const string company = "Funny .net programmers";
+        public const int defaultSalary = 500;
+
         public readonly Guid id = Guid.NewGuid();
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -13,7 +16,6 @@ namespace HW_10_03
         public string GitHub { get; set; }
         public virtual List<string> Responsibilities { get; set; }
         public virtual List<string> Technologies { get; set; }
-        public const string company = "Funny .net programmers";
 
         public Engineer()
         {
@@ -36,7 +38,7 @@ namespace HW_10_03
 
         public virtual int GetSalary()
         {
-            return 500;
+            return defaultSalary;
         }
         public override string ToString()
         {
