@@ -21,7 +21,7 @@ namespace HW_10_03
 
         public override int GetSalary()
         {
-            return 500 * 8 + 500;
+            return defaultSalary * 8 + 500;
         }
     }
 }
