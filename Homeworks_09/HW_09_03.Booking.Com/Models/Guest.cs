@@ -1,6 +1,6 @@
 ﻿namespace HW_09_03.Booking.Com.Models
 {
-    class GuestData
+    class Guest
     {
         public string LastName { get; set; }
         public string FirstName { get; set; }
@@ -12,7 +12,7 @@
         public string YourPhone { get; set; }
         public Room TypeOfRoom { get; set; }
 
-        public GuestData()
+        public Guest()
         {
             LastName = string.Empty;
             FirstName = string.Empty;
@@ -23,7 +23,7 @@
             YourCountry = string.Empty;
             YourPhone = string.Empty;
         }
-        public GuestData(Room room, string lastName, string firstName, string email, string adress, string city, string country, string phone, string wishes = "")
+        public Guest(Room room, string lastName, string firstName, string email, string adress, string city, string country, string phone, string wishes = "")
         {
             TypeOfRoom = room;
             LastName = lastName;
